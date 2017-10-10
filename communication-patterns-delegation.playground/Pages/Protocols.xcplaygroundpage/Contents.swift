@@ -301,17 +301,33 @@ compare(artist: dali)
  
  
 */
+//iterating design pattern
 let arr = [[2,5,9], [0, 4, 2], [6, 8, 3]]
 
 struct Arr: IteratorProtocol {
-    mutating func next() -> Element {
-        
+    let arrNew = [[Int]]()
+    var row = 0
+    var section = 0
+//    row is the single item within three section, section 1 then reset row to 0
+    mutating func next() -> Int? {
+        while index < 3 {
+            if row > 2{
+                row = 0
+                row = row + 1
+                return arr[section][row]
+            }
+            section += 1
+        }
     }
     
-    typealias Element = Int
-
+    typealias Element = [Int]
+    
+    
     
 }
+
+    
+
 
 
 //: [Next](@next)
