@@ -7,9 +7,17 @@
 //
 
 import UIKit
+protocol passAction: class {
+    func buttonPressed()
+}
 
+extension passAction where Self: UIViewController {
+    func buttonPressed() {
+        print("the action function is passed to vc via protocal passAction")
+    }
+}
 class TouchbleView: UIView {
-
+    weak var delegate: passAction?
     let touchGesture = UITapGestureRecognizer()
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,7 +39,8 @@ class TouchbleView: UIView {
     
     // Called when view is tapped
     @objc func handleTap(tap: UITapGestureRecognizer) {
-        print("Tapped")
+//        print("Tapped")
+        delegate?.buttonPressed()
         
     }
 

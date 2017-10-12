@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, passAction {
 
     @IBOutlet weak var touchableView: TouchbleView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        touchableView.delegate = self
     }
     
     
